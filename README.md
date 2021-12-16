@@ -1,4 +1,4 @@
-# HTML, CSS, JavaScript - Jumpstart
+# HTML, CSS, JavaScript
 
 Ein Kurs von PPEDV :rocket:
 
