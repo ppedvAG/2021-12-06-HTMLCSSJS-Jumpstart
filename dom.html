@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="script/dom.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="input-group">
+        <input id="tagName" type="text" placeholder="Schreib einen Tag...">
+        <input id="textValue" type="text" placeholder="Schreib etwas...">
+        <button onclick="createTag()">Hinzufügen</button>
+    </div>
+    <div class="container">
+    <table id="table" data-rowsPerPage="10" class="table">
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr>
+            <td>text</td>
+        </tr>
+        <tr id="testRow">
+            <td id="test">text123123123</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+<script>
+    let rowsPerPage = 5;
+    function genTable() {
+        let table = document.querySelector("#table");
+        rowsPerPage = parseInt(table.dataset.rowsperpage);
+        console.log(rowsPerPage);
+        currentPage(table);
+        createPagers(table);
+        loadTable(table);
+    }
+    function currentPage(table) {
+        table.dataset.currentpage = "0";
+    }
+    function createPagers(table) {
+        let rows = table.rows.length;
+        let numPages = rows / rowsPerPage
+        if (numPages % 1 > 0) {
+            numPages = Math.floor(numPages) + 1;
+        } 
+        let pager = document.createElement("div");
+        pager.classList.add("pager");
+        for (let i = 0; i < numPages; i++) {
+            let pageNum = document.createElement("div");
+            pageNum.className = "pageNum";
+            pageNum.innerHTML = i + 1;
+            pageNum.dataset.index = i;
+            pageNum.addEventListener("click", function() {
+                let parent = this.parentNode;
+                let items = parent.querySelectorAll(".pageNum");
+                for (let j = 0; j < items.length; j++) {
+                    items[j].classList.remove("selected");
+                }
+                this.classList.add("selected");
+                table.dataset.currentpage = this.dataset.index;
+                loadTable(table);
+            });
+            pager.appendChild(pageNum);
+        }
+        table.parentNode.insertBefore(pager, table);
+    }
+    function loadTable(table) {
+        let startIndex = 0;
+        let start = (parseInt(table.dataset.currentpage) * table.dataset.rowsperpage) + startIndex;
+        let end = start + parseInt(table.dataset.rowsperpage);
+        let rows = table.rows;
+        for (let i = startIndex; i < rows.length; i++) {
+            if (i < start | i >= end) {
+                rows[i].classList.add("inactive");
+            }
+            else {
+                rows[i].classList.remove("inactive");
+            }
+        }
+    }
+    genTable();
+
+    function sayIwas() {
+        alert("Hallo");
+    }
+    document.querySelector("#test").addEventListener("click", function (e) {alert("ich wurde geklickt."); e.stopPropagation()});
+    document.querySelector("#testRow").addEventListener("click", function() {alert("TestRow wurde geklickt")});
+    document.querySelector("#table").addEventListener("click", function() {alert("Table wurde geklickt")});
+    document.addEventListener("click", function() {alert("body wurde geklickt.")});
+    // document.removeEventListener("click", )
+    /* document.querySelector("#test").addEventListener("click", function () {alert("ich wurde geklickt.")}, true);
+    document.querySelector("#testRow").addEventListener("click", function() {alert("TestRow wurde geklickt"), true});
+    document.querySelector("#table").addEventListener("click", function() {alert("Table wurde geklickt")}, true);
+    document.addEventListener("click", function() {alert("body wurde geklickt.")}, true); */
+</script>
+<style>
+    .inactive {
+        display: none;
+    }
+</style>
+</html>

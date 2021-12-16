@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="script/forms.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="username">Texteingabe:
+            <input id="username" type="text" placeholder="Username">
+        </label>
+        <label for="email">E-Mail:
+            <input  id="email" type="email" placeholder="email">
+        </label>
+        <label for="dropdown">
+            <select>
+                <optgroup label="Marvel">
+                    <option value="Spiderman">Spiderman
+                    </option>
+                    <option value="IronMan">IronMan</option>
+                </optgroup>
+                <optgroup label="DC">DC
+                    <option value="Batman">Batman</option>
+                    <option value="Superman">Superman</option>
+                </optgroup>
+                <optgroup label="Anderes Zeug">
+                    <option value="Sandman">Sandman</option>
+                </optgroup>
+            </select>
+        </label>
+        <label for="password">
+            <input pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required id="password" type="password">
+        </label>
+        <input type="submit" value="Absenden" formaction="dom.html">
+        <label>Angekreuzt
+        <input type="checkbox">
+        </label>
+        <label>
+            Newsletter
+            <input name="newsletter" type="radio" value="off">
+            <input name="newsletter" type="radio" value="on">
+        </label>
+        <label>Telefonnummer
+            <input type="tel">
+        </label>
+        <label>Datum
+            <input type="date">
+        </label>
+        <label>Datei:
+            <input type="file">
+        </label>
+        <label>Farbe:
+            <input id="farbe" type="color">
+        </label>
+        <label>Nummer:
+            <input min="10" max="500" step="5" type="number">
+        </label>
+        <label>Range:
+            <input type="range">
+        </label>
+    </form>
+</body>
+</html>

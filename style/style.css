@@ -1,0 +1,146 @@
+#heading {
+    color:darkred;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+h1 {
+    color:rgb(43, 11, 224);
+}
+
+h1 {
+    color: yellow;
+    font-size: 25px;
+}
+
+h2, h3, h6 {
+    font-size: 15px;
+    color: darkred;
+    margin: 10px 0 10px 0;
+}
+
+p {
+    color: purple;
+}
+
+.inhalt {
+    margin: 0px 5px 20px 35px;
+    color: darkorange;
+}
+
+a {
+    color:aquamarine;
+}
+/* Ich bin ein Kommentar */
+
+ul > li > a {
+    text-decoration: none;
+    color: darkred;
+    font-weight: 800;
+}
+
+* {
+    color: black;
+}
+
+ol * {
+    background-color: gold;
+}
+
+/* Der Allgemine Nachbarselektor ~ trifft alle Elemente, die neben den voranstehenden Element stehen */
+/* Der direkte Nachbarselektor +, tirfft nur Elemente die direkt nach oder vor dem voranstehenden Element stehen */
+dt ~ dd {
+    background-color: brown;
+}
+
+/* html {
+    background-color: dimgrey;
+    font-family: 'Corinthia', cursive;
+    font-size: 16px;
+} */
+
+/* tr:nth-of-type(odd) {
+    background-color: aqua;
+} */
+
+/* tbody > tr:nth-child(2n) {
+    background-color: aqua;
+} */
+
+tbody > tr:nth-of-type(2n) {
+    background-color: aqua;
+}
+
+.tableBox {
+    border-collapse: collapse;
+}
+
+.tableBox * {
+    border-width: 2px;
+    border-style: solid;
+    border-color: red;
+    border-collapse: collapse;
+}
+
+/* td {
+    border-width: 2px;
+    border-style: solid;
+    border-color: red;
+} */
+
+/* 
+Arten von Position:
+    static - jedes Element
+    relative - verschiebt sich relativ zu seiner static Position weg
+    fixed - verschiebt sich realtiv zum Sichtfeld des Benutzery
+    sticky - Mischung aus realtive und fixed => relative bis es durch scrollen nicht mehr sichtbar wäre danach fixed
+    absolute - 
+*/
+/* 
+    Mittel zum Verschieben:
+    top, von der Oberseite weg
+    bottom, von der Unterseite weg
+    left, von Links weg
+    right von Rechts weg
+*/
+#navbar {
+    position: sticky;
+    top: 50px;
+}
+
+/* 
+    Größeneinheite:
+    Absoluten Einheiten:
+    cm - Centimente
+    mm - Milimeter
+    in - inches
+    px - Pixel ( 1/96 inch)
+    pt - points ( 1/72 inch)
+    pc - picas ( 12 points)
+
+    Geeignet wenn wir allein für bestimmte Geräte entwickeln und die Maße genau kennen
+*/
+
+/* 
+    Relative Einheiten:
+    em -In Realtion zur Schriftgröße des Elements 
+    rem - In Relation zur Schriftgröße des root Elements
+    ex - In relation zu x-Achse der derzeitigen Schriftart
+    ch - Relativ zur Breite der 0 der derzeitigen Schriftart und -größe
+    vw - 1% der Breite des Displays
+    vh - 1% der Höhe des Displays
+    vmin - 1% des kleineren Seite des Displays
+    vmax - 1% der größeren Seite des Displays
+    % - Relativ zur Größe des Elternelements
+*/
+
+.picture {
+    height: 20rem;
+    float: left;
+}
+
+.description {
+    margin-left: 15rem;
+    padding-left: 13rem;
+    margin-right: 5rem;
+}
